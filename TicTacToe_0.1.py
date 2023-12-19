@@ -1,7 +1,7 @@
 #Author: Ouzer Shema
 #We are trying to automate https://playtictactoe.org/ inspired by Angie Jones & EvilTester on youtube
 #The objective is to create a bot that engages in 10 games with another game bot, with the primary goal of confirming the playability of these 10 games.
-#git purpose
+
 #Importing directories
 from selenium import webdriver
 from selenium.webdriver.common.by import By
