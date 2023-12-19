@@ -1,7 +1,7 @@
 #Author: Ouzer Shema
 #We are trying to automate https://playtictactoe.org/ inspired by Angie Jones & EvilTester on youtube
 #The objective is to create a bot that engages in 10 games with another game bot, with the primary goal of confirming the playability of these 10 games.
-#git purpose
+
 #Importing directories
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -22,3 +22,21 @@ random_square = random.choice(square)
 random_square.click()
 time.sleep(1)
 
+#Now we need to keep making moves until the game is over
+while True:
+    square = driver.find_elements(By.CSS_SELECTOR,'div.square:not(.x):not(.o)')
+    
+    if square:
+        random_square = random.choice(square)
+        random_square.click()
+        time.sleep(1)
+    
+    try:
+        restart = driver.find_element(By.CSS_SELECTOR,'div.restart[style="display: block;"]') #this will make sure we keep playing till the style changes from none to block
+        if restart.is_displayed():
+            print("Game over")
+            break
+    except:
+        pass
+
+    
